@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NEON GUIDE — Tokyo Nightlife Intel</title>
+<meta name="description" content="Community-powered Tokyo nightlife reviews, bar guides, club ratings, and safety tips for international travelers.">
+<meta property="og:title" content="NEON GUIDE — Tokyo Nightlife Intel">
+<meta property="og:description" content="Trusted reviews from real night owls. Bars, clubs, karaoke, late-night eats — all rated by travelers like you.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌃</text></svg>">
+</head>
+<body>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+  }
+
+  html, body {
+    background: #0a0e1a;
+    min-height: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  #ng-root {
+    background: #0a0e1a;
+    color: #e0e6f0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 0.5px solid rgba(0, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .ng-head {
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0
+  }
+
+  .ng-logo {
+    font-size: 11px;
+    font-weight: 500;
+    color: #ff2d7c;
+    letter-spacing: 2px
+  }
+
+  .ng-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 1px
+  }
+
+  .ng-cyan {
+    color: #00e5ff
+  }
+
+  .ng-pink {
+    color: #ff2d7c
+  }
+
+  .ng-gold {
+    color: #f5c518
+  }
+
+  .ng-muted {
+    color: #8892a8
+  }
+
+  .ng-dim {
+    color: #505a70
+  }
+
+  .ng-body {
+    flex: 1;
+    overflow-y: auto;
+    background: #0a0e1a;
+  }
+
+  .ng-card {
+    background: #131829;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 229, 255, 0.1);
+    margin: 12px 20px
+  }
+
+  .ng-card-head {
+    padding: 10px 16px;
+    background: rgba(0, 229, 255, 0.05);
+    border-bottom: 0.5px solid rgba(0, 229, 255, 0.08);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #00e5ff
+  }
+
+  .ng-card-body {
+    padding: 14px 16px
+  }
+
+  .ng-tag {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    display: inline-block;
+    margin: 2px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s
+  }
+
+  .ng-tag-cyan {
+    background: rgba(0, 229, 255, 0.08);
+    color: #00e5ff
+  }
+
+  .ng-tag-pink {
+    background: rgba(255, 45, 124, 0.1);
+    color: #ff2d7c
+  }
+
+  .ng-tag-purple {
+    background: rgba(138, 43, 226, 0.12);
+    color: #b47aff
+  }
+
+  .ng-tag-orange {
+    background: rgba(255, 165, 0, 0.12);
+    color: #ffa500
+  }
+
+  .ng-tag-green {
+    background: rgba(0, 200, 83, 0.12);
+    color: #00c853
+  }
+
+  .ng-tag-off {
+    background: #1a2038;
+    color: #8892a8
+  }
+
+  .ng-tag-off:hover {
+    background: #222a45
+  }
+
+  .ng-badge {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    display: inline-block
+  }
+
+  .ng-btn {
+    background: #00e5ff;
+    color: #0a0e1a;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: opacity 0.15s
+  }
+
+  .ng-btn:hover {
+    opacity: 0.85
+  }
+
+  .ng-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed
+  }
+
+  .ng-btn-sm {
+    background: #00e5ff;
+    color: #0a0e1a;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: inherit
+  }
+
+  .ng-btn-ghost {
+    background: transparent;
+    border: 0.5px solid rgba(0, 229, 255, 0.25);
+    color: #00e5ff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit
+  }
+
+  .ng-btn-ghost:hover {
+    background: rgba(0, 229, 255, 0.08)
+  }
+
+  .ng-input,
+  .ng-textarea {
+    background: #0d1224;
+    border: 0.5px solid rgba(0, 229, 255, 0.15);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #e0e6f0;
+    font-size: 13px;
+    width: 100%;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s
+  }
+
+  .ng-input:focus,
+  .ng-textarea:focus {
+    border-color: #00e5ff
+  }
+
+  .ng-input::placeholder,
+  .ng-textarea::placeholder {
+    color: #505a70
+  }
+
+  .ng-textarea {
+    min-height: 80px;
+    resize: vertical
+  }
+
+  .ng-select {
+    background: #0d1224;
+    border: 0.5px solid rgba(0, 229, 255, 0.15);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #e0e6f0;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none
+  }
+
+  .ng-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1a2038;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0
+  }
+
+  .ng-avatar-sm {
+    width: 24px;
+    height: 24px;
+    font-size: 10px
+  }
+
+  .ng-stars {
+    color: #f5c518;
+    font-size: 13px;
+    letter-spacing: 1px
+  }
+
+  .ng-bar {
+    height: 6px;
+    background: #1a2038;
+    border-radius: 3px;
+    overflow: hidden;
+    flex: 1
+  }
+
+  .ng-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: #00e5ff;
+    transition: width 0.3s
+  }
+
+  .ng-nav {
+    padding: 10px 20px;
+    border-top: 1px solid rgba(0, 229, 255, 0.08);
+    display: flex;
+    justify-content: space-around;
+    background: #0a0e1a;
+    flex-shrink: 0
+  }
+
+  .ng-nav-item {
+    text-align: center;
+    font-size: 11px;
+    color: #8892a8;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: color 0.15s;
+    flex: 1
+  }
+
+  .ng-nav-item:hover {
+    color: #e0e6f0
+  }
+
+  .ng-nav-item.active {
+    color: #00e5ff
+  }
+
+  .ng-nav-icon {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 2px
+  }
+
+  .ng-comment {
+    padding: 12px;
+    background: #0d1224;
+    border-radius: 8px;
+    margin-bottom: 8px
+  }
+
+  .ng-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.08);
+    padding: 0 20px;
+    overflow-x: auto
+  }
+
+  .ng-tab {
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #8892a8;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.15s
+  }
+
+  .ng-tab:hover {
+    color: #e0e6f0
+  }
+
+  .ng-tab.active {
+    color: #00e5ff;
+    border-bottom-color: #00e5ff
+  }
+
+  .ng-star-btn {
+    width: 36px;
+    height: 36px;
+    background: #1a2038;
+    border: 0.5px solid rgba(0, 229, 255, 0.15);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    color: #505a70;
+    transition: all 0.15s
+  }
+
+  .ng-star-btn.selected {
+    background: rgba(245, 197, 24, 0.15);
+    border-color: #f5c518;
+    color: #f5c518
+  }
+
+  .ng-star-btn:hover {
+    border-color: #f5c518
+  }
+
+  .ng-spot-card {
+    background: #131829;
+    border-radius: 10px;
+    border: 0.5px solid rgba(0, 229, 255, 0.1);
+    padding: 14px 16px;
+    margin: 0 20px 12px;
+    cursor: pointer;
+    transition: border-color 0.15s
+  }
+
+  .ng-spot-card:hover {
+    border-color: rgba(0, 229, 255, 0.35)
+  }
+
+  .ng-back {
+    font-size: 12px;
+    color: #8892a8;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px
+  }
+
+  .ng-back:hover {
+    color: #00e5ff;
+    background: rgba(0, 229, 255, 0.05)
+  }
+
+  .ng-liked {
+    color: #ff2d7c !important
+  }
+
+  .ng-joined {
+    background: rgba(0, 200, 83, 0.15) !important;
+    color: #00c853 !important
+  }
+
+  .ng-toast {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #131829;
+    border: 0.5px solid #00e5ff;
+    color: #00e5ff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 100;
+    pointer-events: none
+  }
+
+  .ng-toast.show {
+    opacity: 1
+  }
+
+  .ng-hidden {
+    display: none !important
+  }
+
+  .ng-pill {
+    background: #00e5ff;
+    color: #0a0e1a;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: inherit
+  }
+
+  .ng-screen {
+    animation: fadeIn 0.2s ease-out;
+    min-height: 100%;
+    background: #0a0e1a;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px)
+    }
+
+    to {
+      opacity: 1;
+      transform: none
+    }
+  }
+
+  /* ============ HERO ============ */
+  .ng-hero {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #0a0e1a;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+  }
+
+  .ng-hero-img {
+    position: absolute;
+    inset: 0;
+    background-image: url('img/hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .ng-hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px 20px;
+    background:
+      linear-gradient(180deg, rgba(10, 14, 26, 0.55) 0%, rgba(10, 14, 26, 0.3) 40%, rgba(10, 14, 26, 0.85) 100%);
+  }
+
+  .ng-hero-sub {
+    font-size: 11px;
+    color: #00e5ff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+  }
+
+  .ng-hero-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  }
+
+  .ng-hero.hidden {
+    display: none;
+  }
+
+  /* ============ RESPONSIVE — SP ============ */
+  @media (max-width: 600px) {
+    .ng-head {
+      padding: 12px 14px;
+    }
+
+    .ng-logo {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    .ng-title {
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .ng-hero {
+      height: 140px;
+    }
+
+    .ng-hero-sub {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .ng-hero-title {
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .ng-card {
+      margin: 10px 14px;
+    }
+
+    .ng-spot-card {
+      margin: 0 14px 10px;
+      padding: 12px 14px;
+    }
+
+    .ng-tabs {
+      padding: 0 14px;
+    }
+
+    .ng-tab {
+      padding: 9px 10px;
+      font-size: 11px;
+    }
+
+    .ng-nav {
+      padding: 8px 10px;
+    }
+
+    .ng-nav-item {
+      font-size: 10px;
+      padding: 3px 4px;
+    }
+
+    .ng-nav-icon {
+      font-size: 14px;
+    }
+
+    /* Screen padding overrides via inline style handled by selector */
+    .ng-screen {
+      /* content padding is inline in many places; we rely on cards/margins above */
+    }
+
+    /* shrink inline padded screens */
+    .ng-screen[style*="padding:16px 20px"] {
+      padding: 12px 14px !important;
+    }
+
+    .ng-screen[style*="padding:60px 20px"] {
+      padding: 40px 14px !important;
+    }
+
+    #ng-head-action input[type="text"] {
+      width: 100px !important;
+      font-size: 11px !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .ng-hero {
+      height: 120px;
+    }
+
+    .ng-hero-title {
+      font-size: 15px;
+    }
+
+    .ng-title {
+      font-size: 13px;
+    }
+
+    #ng-head-action .ng-pill {
+      font-size: 11px;
+      padding: 5px 10px;
+    }
+
+    #ng-head-action input[type="text"] {
+      display: none;
+    }
+  }
+
+
+  /* ============ SPOT ACCOUNT IMAGE ============ */
+  .ng-spot-banner {
+    width: 100%; aspect-ratio: 16/9; height: auto; overflow: hidden;
+    background: linear-gradient(135deg, #1a2038, #131829);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px; position: relative;
+    border-radius: 10px 10px 0 0;
+  }
+  .ng-spot-banner img { width: 100%; height: 100%; object-fit: cover; }
+  .ng-spot-banner-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(19,24,41,0.85) 0%, transparent 50%);
+  }
+  .ng-spot-banner-name {
+    position: absolute; bottom: 10px; left: 12px; right: 80px;
+    font-size: 16px; font-weight: 700; color: #fff;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    z-index: 1;
+  }
+  .ng-spot-banner-rating {
+    position: absolute; bottom: 8px; right: 12px;
+    text-align: center; z-index: 1;
+  }
+  .ng-spot-detail-banner {
+    width: 100%; aspect-ratio: 16/9; height: auto; max-height: 240px; overflow: hidden;
+    background: linear-gradient(135deg, #1a2038, #0d1224);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; margin-bottom: 14px; position: relative;
+    border-radius: 10px;
+  }
+  .ng-spot-detail-banner img { width: 100%; height: 100%; object-fit: cover; }
+  .ng-spot-detail-banner-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(10,14,26,0.7) 0%, transparent 40%);
+    border-radius: 10px;
+  }
+
+  /* ============ STAFF HORIZONTAL SCROLL ============ */
+  .ng-staff-scroll {
+    display: flex; gap: 12px; overflow-x: auto; padding: 0 20px 12px;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .ng-staff-scroll::-webkit-scrollbar { display: none; }
+  .ng-staff-scroll-item {
+    flex-shrink: 0; width: 80px; text-align: center; cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .ng-staff-scroll-item:hover { transform: translateY(-2px); }
+  .ng-staff-scroll-avatar {
+    width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 6px;
+    background: linear-gradient(135deg, #1a2038, #131829);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; position: relative; overflow: hidden;
+    border: 2px solid rgba(0,229,255,0.2);
+  }
+  .ng-staff-scroll-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .ng-staff-scroll-avatar.has-new { border-color: #ff2d7c; }
+  .ng-staff-scroll-new {
+    position: absolute; bottom: -2px; right: -2px;
+    background: #ff2d7c; color: #fff; font-size: 8px; font-weight: 700;
+    padding: 1px 4px; border-radius: 4px;
+  }
+  .ng-staff-scroll-name { font-size: 11px; font-weight: 500; color: #e0e6f0; line-height: 1.2; }
+  .ng-staff-scroll-role { font-size: 9px; color: #8892a8; margin-top: 2px; }
+  .ng-staff-scroll-shop { font-size: 9px; color: #ff2d7c; margin-top: 1px; }
+
+  @media (max-width: 600px) {
+    .ng-spot-banner { font-size: 36px; }
+    .ng-spot-banner-name { font-size: 14px; }
+    .ng-spot-detail-banner { max-height: 180px; font-size: 48px; }
+    .ng-staff-scroll { gap: 10px; padding: 0 14px 10px; }
+    .ng-staff-scroll-item { width: 72px; }
+    .ng-staff-scroll-avatar { width: 56px; height: 56px; font-size: 24px; }
+  }
+
+  /* ============ ADMIN PANEL ============ */
+  .ng-admin-section { margin-bottom: 20px; }
+  .ng-admin-section-title {
+    font-size: 12px; font-weight: 600; color: #ff2d7c; letter-spacing: 1px;
+    margin-bottom: 10px; text-transform: uppercase;
+  }
+  .ng-admin-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: flex-end; }
+  .ng-admin-row > div { flex: 1; }
+  .ng-admin-row label { display: block; font-size: 10px; color: #505a70; margin-bottom: 3px; }
+  .ng-admin-mini-card {
+    background: #131829; border-radius: 6px; padding: 8px 10px;
+    border: 0.5px solid rgba(0,229,255,0.08); margin-bottom: 6px;
+    display: flex; align-items: center; gap: 8px; font-size: 12px;
+  }
+  .ng-admin-del {
+    color: #ff2d7c; cursor: pointer; font-size: 10px; margin-left: auto;
+    padding: 2px 6px; border-radius: 4px;
+  }
+  .ng-admin-del:hover { background: rgba(255,45,124,0.1); }
+
+  /* ============ PROMOTED / SHOP ============ */
+  .ng-promo-card {
+    background: #131829;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 45, 124, 0.25);
+    margin: 0 20px 12px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    overflow: hidden;
+    position: relative;
+  }
+  .ng-promo-card:hover { border-color: rgba(255, 45, 124, 0.5); }
+  .ng-promo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #ff2d7c, #b47aff, #00e5ff);
+  }
+  .ng-promo-banner {
+    height: 100px;
+    background: linear-gradient(135deg, #1a1040 0%, #0d1224 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #505a70;
+    position: relative;
+    overflow: hidden;
+  }
+  .ng-promo-banner-glow {
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.3;
+  }
+  .ng-official-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: linear-gradient(135deg, rgba(255,45,124,0.15), rgba(180,122,255,0.15));
+    color: #ff2d7c;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    border: 0.5px solid rgba(255, 45, 124, 0.25);
+  }
+  .ng-pr-label {
+    position: absolute;
+    top: 8px; right: 8px;
+    background: rgba(10, 14, 26, 0.7);
+    color: #8892a8;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+  }
+  .ng-staff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 600px) {
+    .ng-staff-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .ng-promo-banner { height: 80px; }
+    .ng-promo-card { margin: 0 14px 10px; }
+  }
+  @media (max-width: 400px) {
+    .ng-staff-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+    .ng-promo-banner { height: 70px; }
+  }
+  .ng-staff-card {
+    background: #0d1224;
+    border-radius: 8px;
+    border: 0.5px solid rgba(0, 229, 255, 0.08);
+    overflow: hidden;
+    transition: border-color 0.15s;
+    cursor: pointer;
+  }
+  .ng-staff-card:hover { border-color: rgba(0, 229, 255, 0.3); }
+  .ng-staff-photo {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: linear-gradient(135deg, #1a2038 0%, #131829 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #505a70;
+    position: relative;
+  }
+  .ng-staff-new {
+    position: absolute;
+    top: 6px; left: 6px;
+    background: #ff2d7c;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .ng-staff-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .ng-staff-info {
+    padding: 8px 10px;
+  }
+  .ng-event-card {
+    background: #0d1224;
+    border-radius: 8px;
+    border: 0.5px solid rgba(0, 229, 255, 0.08);
+    padding: 12px;
+    margin-bottom: 8px;
+    transition: border-color 0.15s;
+  }
+  .ng-event-card:hover { border-color: rgba(0, 229, 255, 0.2); }
+  .ng-coupon {
+    background: linear-gradient(135deg, rgba(255,45,124,0.08), rgba(180,122,255,0.08));
+    border: 1px dashed rgba(255, 45, 124, 0.3);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .ng-coupon-cut {
+    position: absolute;
+    top: 50%; left: -6px;
+    width: 12px; height: 12px;
+    background: #0a0e1a;
+    border-radius: 50%;
+  }
+  .ng-coupon-cut-r {
+    left: auto; right: -6px;
+  }
+  .ng-shop-tab { display: flex; gap: 0; border-bottom: 1px solid rgba(0,229,255,0.08); padding: 0; overflow-x: auto; margin: 0 20px; }
+  .ng-shop-tab .ng-tab { flex: 1; text-align: center; }
+  @media (max-width: 600px) { .ng-shop-tab { margin: 0 14px; } .ng-shop-tab .ng-tab { padding: 9px 8px; font-size: 11px; } }
+  .ng-stat-row { display: flex; gap: 12px; }
+  .ng-stat-box { flex: 1; background: #0d1224; border-radius: 8px; padding: 10px; text-align: center; border: 0.5px solid rgba(0,229,255,0.08); }
+
+</style>
+
+<div id="ng-root" style="position:relative;">
+  <div class="ng-head">
+    <div>
+      <div class="ng-logo">NEON GUIDE</div>
+      <div class="ng-title" id="ng-screen-title">TOKYO <span class="ng-cyan">//</span> LIVE INTEL</div>
+    </div>
+    <div id="ng-head-action"></div>
+  </div>
+  <div class="ng-hero" id="ng-hero">
+    <div class="ng-hero-img"></div>
+    <div class="ng-hero-overlay">
+      <div class="ng-hero-sub">Community-powered nightlife intel</div>
+      <div class="ng-hero-title">Trusted reviews from<br><span class="ng-cyan">real night owls</span></div>
+    </div>
+  </div>
+  <div class="ng-body" id="ng-body"></div>
+  <div class="ng-nav" id="ng-nav"></div>
+  <div class="ng-toast" id="ng-toast"></div>
+</div>
+
+<script>
+  (function () {
+    // ============ STATE ============
+    const state = {
+      screen: 'feed',
+      currentSpotId: null,
+      currentThreadId: null,
+      boardTab: 'all',
+      feedTab: 'hot',
+      form: { rating: 0, spotId: 1, tags: [], price: '', body: '', title: '', cats: { music: 0, vibe: 0, value: 0, safety: 0, english: 0 } },
+      reviewForm: { body: '', rating: 0 },
+      commentForm: {},
+      threadForm: { title: '', body: '', category: 'lfg' },
+      currentShopId: null,
+      shopTab: 'about'
+    };
+
+    const spots = [
+      {
+        id: 1, name: 'WOMB Shibuya', type: 'Nightclub', district: 'Shibuya', price: '¥3,500 w/ 2 drinks', hours: '23:00–05:00', rating: 4.2, reviewCount: 186,
+        icon: '🎶', img: 'img/shop-1.jpg',
+        tags: ['International crowd', 'Great sound system', 'Foreigner friendly', 'Can get crowded', 'Cash only at bar'],
+        cats: { music: 4.5, vibe: 4.3, value: 3.6, safety: 4.5, english: 3.8 },
+        dist: { 5: 108, 4: 52, 3: 18, 2: 5, 1: 3 }
+      },
+      {
+        id: 2, name: 'Golden Gai Bar Hopping', type: 'Bar district', district: 'Shinjuku', price: '¥2,000–5,000', hours: '19:00–05:00', rating: 4.8, reviewCount: 247,
+        icon: '🏮', img: 'img/shop-2.jpg',
+        tags: ['Foreigner friendly', 'English menu', 'Solo traveler OK', 'Cash only'],
+        cats: { music: 4.0, vibe: 5.0, value: 4.5, safety: 4.7, english: 4.2 },
+        dist: { 5: 180, 4: 50, 3: 12, 2: 3, 1: 2 }
+      },
+      {
+        id: 3, name: 'Ichiran Ramen Shinjuku', type: 'Late-night eats', district: 'Shinjuku', price: '¥1,000–1,500', hours: '24 hours', rating: 4.5, reviewCount: 412,
+        icon: '🍜', img: 'img/shop-3.jpg',
+        tags: ['24 hours', 'English menu', 'Solo booths', 'Tourist friendly'],
+        cats: { music: 3.0, vibe: 3.8, value: 4.3, safety: 4.8, english: 4.6 },
+        dist: { 5: 260, 4: 110, 3: 32, 2: 7, 1: 3 }
+      },
+      {
+        id: 4, name: 'Karaoke Kan Shibuya', type: 'Karaoke', district: 'Shibuya', price: '¥500–1,500 per person/hr', hours: '11:00–05:00', rating: 4.3, reviewCount: 158,
+        icon: '🎤', img: 'img/shop-4.jpg',
+        tags: ['English songs', 'Foreigner friendly', 'Late night', 'Group friendly'],
+        cats: { music: 4.5, vibe: 4.4, value: 4.0, safety: 4.6, english: 4.1 },
+        dist: { 5: 95, 4: 45, 3: 12, 2: 4, 1: 2 }
+      }
+    ];
+
+    const reviews = [
+      {
+        id: 1, spotId: 1, user: 'SakuraKnight_AU', initials: 'SK', color: '#ff2d7c', level: 5, rating: 5,
+        text: 'The best club experience in Tokyo, hands down. Saturday night was packed but the sound system is unreal. Staff were super helpful. Pro tip: arrive before midnight to skip the line.',
+        tags: ['Great music', 'Friendly staff'], helpful: 47, replies: 5, time: '3 days ago'
+      },
+      {
+        id: 2, spotId: 1, user: 'Mike_Jakarta', initials: 'MJ', color: '#00e5ff', level: 2, rating: 3,
+        text: 'Music was great but drinks were overpriced. ¥1,200 for a basic highball is steep. The crowd was fun though and I met a lot of other travelers.',
+        tags: ['Pricey drinks', 'Good crowd'], helpful: 23, replies: 2, time: '1 week ago'
+      },
+      {
+        id: 3, spotId: 2, user: 'TorontoChill', initials: 'TC', color: '#b47aff', level: 3, rating: 5,
+        text: 'Absolutely magical experience. The bartenders are incredibly welcoming even though my Japanese is basically zero. Each tiny bar has its own personality.',
+        tags: ['Unique atmosphere', 'Welcoming'], helpful: 34, replies: 3, time: '2 days ago'
+      }
+    ];
+
+    const threads = [
+      {
+        id: 1, category: 'pinned', title: 'Community guidelines & safety rules — Read before posting', author: 'Moderators', initials: 'MD', color: '#ff2d7c', level: 'MOD', district: '', time: 'Updated 2d ago',
+        body: 'Welcome to NEON GUIDE Board! This is your space to connect, ask questions, and share intel about Tokyo\'s nightlife scene. Please keep posts respectful and report any safety concerns.',
+        comments: [], likes: 89, joining: 0, pinned: true
+      },
+      {
+        id: 2, category: 'lfg', title: 'Anyone want to hit up Roppongi this Friday night? 🌙', author: 'TorontoChill', initials: 'TC', color: '#b47aff', level: 3, district: 'Roppongi', time: '3h ago',
+        body: 'Solo traveler from Canada, 28M. Flying in Thursday and staying in Shinjuku. Looking for people to explore the Roppongi club scene with on Friday night. Into house/techno but open to anything.',
+        plan: { date: 'Friday, April 18', start: '8:00 PM at TBD izakaya', area: 'Roppongi / Shibuya', vibe: 'Casual → Club' },
+        comments: [
+          { user: 'LA_PartyGirl', initials: 'LP', color: '#00e5ff', level: 2, text: 'I\'m down! Also solo, 26F from LA. Let\'s set up a LINE group?', helpful: 5, time: '2h ago' },
+          { user: 'Akira_Korea', initials: 'AK', color: '#ff2d7c', level: 4, text: 'Count me in! 30M from Seoul. Big recommendation: start at Gonpachi in Nishi-Azabu — it\'s the Kill Bill restaurant and surprisingly affordable.', helpful: 11, time: '1h ago' },
+          { user: 'SakuraKnight_AU', initials: 'SK', color: '#ffa500', level: 5, text: 'Heads up: avoid anyone who approaches you on the street offering "cheap drinks" in Roppongi. Stick to reviewed places and you\'ll be fine.', helpful: 24, time: '45m ago', expert: true }
+        ],
+        likes: 8, joining: 5, pinned: false
+      },
+      {
+        id: 3, category: 'qa', title: 'Do clubs in Shibuya check ID strictly? I have a US driver\'s license', author: 'LA_PartyGirl', initials: 'LP', color: '#00e5ff', level: 2, district: 'General', time: '6h ago',
+        body: 'First time in Japan, wondering if my US license is enough or if I need to bring my passport everywhere.',
+        bestAnswer: { user: 'NightOwl_NYC', text: 'Always bring your passport. Most clubs legally require it and won\'t accept foreign driver\'s licenses.' },
+        comments: [], likes: 31, joining: 0, solved: true
+      },
+      {
+        id: 4, category: 'tips', title: 'Golden Gai etiquette guide — Don\'t be THAT tourist', author: 'SakuraKnight_AU', initials: 'SK', color: '#ff2d7c', level: 5, district: 'Shinjuku', time: '1d ago',
+        body: 'After living in Tokyo for 3 years, here are the unwritten rules every visitor should know before entering Golden Gai bars. 1) Respect the 2-3 seat capacity. 2) Most places have a seat charge (¥500-1,000). 3) Don\'t take photos without asking...',
+        comments: [], likes: 89, joining: 0
+      },
+      {
+        id: 5, category: 'warning', title: 'Overcharged ¥80,000 at a Roppongi bar — Avoid "Club Luxe"', author: 'Berlin_Techno', initials: 'BT', color: '#ffa500', level: 3, district: 'Roppongi', time: '2d ago',
+        body: 'Was lured in by a tout near the station. They charged ¥80,000 for 3 drinks. Staff got aggressive when I questioned the bill. Please avoid this place and be cautious of street touts in general.',
+        comments: [], likes: 67, joining: 0, similarReports: 15
+      },
+      {
+        id: 6, category: 'lfg', title: 'Karaoke night tomorrow? Group of 3 looking for more people!', author: 'Alex_London', initials: 'AX', color: '#00e5ff', level: 2, district: 'Shibuya', time: '5h ago',
+        body: 'We booked a room at Karaoke Kan Shibuya for 9pm. Room fits 10, currently 3 of us (USA/UK/AUS). All welcome!',
+        plan: { date: 'Tomorrow', start: '9:00 PM', area: 'Shibuya', vibe: 'Karaoke → drinks' },
+        comments: [], likes: 6, joining: 6
+      }
+    ];
+
+
+    // ============ PROMOTED SHOPS (広告掲載店舗) ============
+    const shops = [
+      {
+        id: 101, name: 'BAR NEON DYNASTY', type: 'Cocktail Bar', district: 'Roppongi',
+        official: true, verified: true,
+        tagline: 'Where Tokyo\'s night begins — craft cocktails & global beats',
+        price: '¥1,500–4,000', hours: '20:00–05:00', address: '3-14-7 Roppongi, Minato-ku',
+        phone: '+81-3-XXXX-XXXX', website: 'neon-dynasty.tokyo',
+        desc: 'Award-winning cocktail bar in the heart of Roppongi. Our mixologists create original drinks inspired by Japanese seasons and ingredients. Spacious lounge area with DJ booth featuring international guest DJs every weekend. Private rooms available for groups of 6-12. English-speaking staff always on duty.',
+        rating: 4.6, reviewCount: 92,
+        cats: { music: 4.7, vibe: 4.8, value: 4.0, safety: 4.9, english: 4.8 },
+        tags: ['Craft cocktails', 'English speaking staff', 'Private rooms', 'DJ events', 'Credit cards OK'],
+        amenities: ['Wi-Fi', 'Smoking area', 'Credit card', 'Private room', 'English menu', 'Wheelchair accessible'],
+        staff: [
+          { name: 'Yuki', role: 'Head Mixologist', emoji: '🍸', photo: 'img/staff-1.jpg', desc: 'Award-winning bartender. Specialty: Japanese whisky cocktails.', isNew: false, schedule: 'Wed–Sun' },
+          { name: 'Marco', role: 'Bar Manager', emoji: '🎵', photo: 'img/staff-2.jpg', desc: 'From Milan. Fluent EN/IT/JP. Runs our DJ nights.', isNew: false, schedule: 'Thu–Mon' },
+          { name: 'Aisha', role: 'Bartender', emoji: '🌸', photo: 'img/staff-3.jpg', desc: 'New from London! Gin specialist & latte art master.', isNew: true, schedule: 'Fri–Tue' },
+          { name: 'Riku', role: 'Bartender', emoji: '🎶', photo: 'img/staff-4.jpg', desc: 'Music lover. Ask him for vinyl recommendations!', isNew: false, schedule: 'Mon–Fri' },
+          { name: 'Sofia', role: 'Floor Staff', emoji: '✨', photo: 'img/staff-5.jpg', desc: 'From São Paulo. Speaks EN/PT/JP. Party coordinator.', isNew: true, schedule: 'Wed–Sun' },
+          { name: 'Kai', role: 'DJ / Bartender', emoji: '🎧', photo: 'img/staff-6.jpg', desc: 'Resident DJ. House/techno sets every weekend.', isNew: false, schedule: 'Fri–Sun' }
+        ],
+        events: [
+          { title: 'NEON FRIDAY — International DJ Night', date: 'Every Friday', time: '22:00–04:00', desc: 'Guest DJs from around the world. No cover with this app!', highlight: true },
+          { title: 'Whisky Tasting Experience', date: 'Apr 20 (Sat)', time: '19:00–21:00', desc: 'Guided tasting of 5 premium Japanese whiskies. ¥5,000 per person. Reservation required.', highlight: false },
+          { title: 'Ladies Night', date: 'Every Wednesday', time: '20:00–24:00', desc: 'First drink free for all ladies. DJ Sofia on decks.', highlight: false }
+        ],
+        coupons: [
+          { title: 'NEON GUIDE Special', desc: 'Show this screen for 1 FREE welcome drink', code: 'NEON2026', expires: 'Jun 30, 2026', type: 'free' },
+          { title: 'Group Discount', desc: '20% off total bill for groups of 4+', code: 'GROUP20', expires: 'May 31, 2026', type: 'discount' }
+        ],
+        news: [
+          { title: 'New spring cocktail menu launched!', time: '2 days ago', body: 'Featuring sakura gin fizz, matcha old fashioned, and 8 more seasonal creations.' },
+          { title: 'Aisha & Sofia join the team', time: '1 week ago', body: 'Welcome our new international staff members! Come say hello.' }
+        ]
+      },
+      {
+        id: 102, name: 'CLUB SPECTRUM', type: 'Nightclub', district: 'Shibuya',
+        official: true, verified: true,
+        tagline: 'Tokyo\'s premier underground music venue',
+        price: '¥3,000 w/ 1 drink', hours: '23:00–06:00', address: '2-21-5 Dogenzaka, Shibuya-ku',
+        phone: '+81-3-XXXX-XXXX', website: 'clubspectrum.jp',
+        desc: 'Multi-floor nightclub featuring world-class sound systems and international headliners. Floor 1: Main room (techno/house). Floor 2: Hip-hop & R&B. Floor 3: Rooftop lounge. Capacity 800. Foreign ID accepted with passport.',
+        rating: 4.4, reviewCount: 215,
+        cats: { music: 4.9, vibe: 4.5, value: 3.8, safety: 4.3, english: 4.0 },
+        tags: ['Multi-floor', 'International DJs', 'Rooftop', 'Passport OK', 'Late night'],
+        amenities: ['Coat check', 'Smoking area', 'Credit card', 'Photo booth', 'VIP area'],
+        staff: [
+          { name: 'DJ SORA', role: 'Resident DJ', emoji: '🎧', photo: 'img/staff-4.jpg', desc: 'Tokyo\'s #1 techno DJ. Headlined Fuji Rock 2025.', isNew: false, schedule: 'Fri & Sat' },
+          { name: 'Taku', role: 'Club Manager', emoji: '🌃', photo: 'img/staff-2.jpg', desc: '10 years in Tokyo nightlife. Your go-to for VIP tables.', isNew: false, schedule: 'Thu–Mon' },
+          { name: 'Emma', role: 'Event Coordinator', emoji: '🎤', photo: 'img/staff-6.jpg', desc: 'From Melbourne. Books international acts. EN/JP bilingual.', isNew: false, schedule: 'Wed–Sun' },
+          { name: 'Ren', role: 'Bartender', emoji: '🍹', photo: 'img/staff-1.jpg', desc: 'Speed mixer. Fastest cocktails in Shibuya.', isNew: true, schedule: 'Fri–Mon' }
+        ],
+        events: [
+          { title: 'SPECTRUM SATURDAYS — Main Event', date: 'Every Saturday', time: '23:00–06:00', desc: 'International headliner every week. This week: DJ Mariana (Berlin).', highlight: true },
+          { title: 'UNDERGROUND THURSDAYS', date: 'Every Thursday', time: '23:00–04:00', desc: 'Deep house & minimal. Reduced entry ¥1,500.', highlight: false }
+        ],
+        coupons: [
+          { title: 'NEON GUIDE Entry', desc: '¥500 off cover charge — show this screen at door', code: 'NEON500', expires: 'Jul 31, 2026', type: 'discount' }
+        ],
+        news: [
+          { title: 'Rooftop season is OPEN!', time: '3 days ago', body: 'Our famous rooftop bar reopens for summer. New cocktail menu + skyline views.' }
+        ]
+      }
+    ];
+
+    const userState = { likedReviews: {}, joinedThreads: {}, likedThreads: {} };
+
+    // ============ HELPERS ============
+    const $ = id => document.getElementById(id);
+    function toast(msg) {
+      const t = $('ng-toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(window._ngToastTimer);
+      window._ngToastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+    }
+    function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+    function stars(n) { return '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n); }
+    function spotBanner(s, detail) {
+      const cls = detail ? 'ng-spot-detail-banner' : 'ng-spot-banner';
+      const ovl = detail ? 'ng-spot-detail-banner-overlay' : 'ng-spot-banner-overlay';
+      if (s.img) return '<div class="'+cls+'"><img src="'+esc(s.img)+'" alt="'+esc(s.name)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'" /><div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:inherit;">'+s.icon+'</div><div class="'+ovl+'"></div></div>';
+      return '<div class="'+cls+'">'+s.icon+'<div class="'+ovl+'"></div></div>';
+    }
+
+    function starsHtml(rating) { const n = Math.round(rating); return '<span class="ng-stars">' + '★'.repeat(n) + '<span style="color:#333">' + '★'.repeat(5 - n) + '</span></span>'; }
+
+    function navigate(screen, params) {
+      state.screen = screen;
+      if (params) Object.assign(state, params);
+      render();
+      $('ng-body').scrollTop = 0;
+    }
+
+    // ============ SCREENS ============
+    function renderFeed() {
+      const catFilter = { hot: t => true, new: t => true, top: t => true };
+      return `
+      <div class="ng-screen" style="padding-top:8px;">
+        <div class="ng-tabs">
+          <div class="ng-tab ${state.feedTab === 'hot' ? 'active' : ''}" data-action="feed-tab" data-val="hot">🔥 Hot</div>
+          <div class="ng-tab ${state.feedTab === 'new' ? 'active' : ''}" data-action="feed-tab" data-val="new">New</div>
+          <div class="ng-tab ${state.feedTab === 'top' ? 'active' : ''}" data-action="feed-tab" data-val="top">Top rated</div>
+          <div class="ng-tab ${state.feedTab === 'nearby' ? 'active' : ''}" data-action="feed-tab" data-val="nearby">Nearby</div>
+        </div>
+
+        <!-- STAFF HORIZONTAL SCROLL -->
+        ${renderStaffScroll()}
+
+        <!-- PR: Promoted Shop Banner -->
+        ${shops.length > 0 ? renderPromoCard(shops[0]) : ''}
+
+        <div style="padding:12px 20px 0;">
+          <div style="font-size:11px;color:#ff2d7c;letter-spacing:1px;font-weight:600;margin-bottom:6px;">⚡ FEATURED SPOTS</div>
+        </div>
+        ${spots.map((s, idx) => {
+          let out = `
+          <div class="ng-spot-card" data-action="open-spot" data-id="${s.id}" style="padding:0;overflow:hidden;">
+            ${spotBanner(s)}
+            <div style="padding:12px 14px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;gap:4px;margin-bottom:4px;flex-wrap:wrap;">
+                    <span class="ng-badge ng-tag-purple">${s.type}</span>
+                    <span class="ng-badge ng-tag-cyan">${s.district}</span>
+                  </div>
+                  <div style="font-size:15px;font-weight:600;margin-bottom:2px;">${esc(s.name)}</div>
+                  <div style="font-size:11px;color:#8892a8;">${esc(s.price)} · ${esc(s.hours)}</div>
+                </div>
+                <div style="text-align:center;flex-shrink:0;">
+                  <div style="font-size:20px;font-weight:700;color:#00e5ff;line-height:1;">${s.rating}</div>
+                  <span class="ng-stars" style="font-size:10px;">${stars(Math.round(s.rating))}</span>
+                  <div style="font-size:10px;color:#505a70;">${s.reviewCount} reviews</div>
+                </div>
+              </div>
+              <div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">
+                ${s.tags.slice(0, 3).map(t => `<span class="ng-tag ng-tag-cyan" style="cursor:default;">${esc(t)}</span>`).join('')}
+              </div>
+            </div>
+          </div>`;
+          // Insert second promo after 2nd spot card
+          if (idx === 1 && shops.length > 1) out += renderPromoCard(shops[1]);
+          return out;
+        }).join('')}
+        <div style="padding:20px;"></div>
+      </div>`;
+    }
+
+    function renderSpotDetail() {
+      const s = spots.find(x => x.id === state.currentSpotId);
+      if (!s) return '';
+      const rList = reviews.filter(r => r.spotId === s.id);
+      const totalDist = Object.values(s.dist).reduce((a, b) => a + b, 0);
+
+      return `
+      <div class="ng-screen">
+        <div style="padding:16px 20px;">
+          ${spotBanner(s, true)}
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+            <div style="flex:1;">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <span class="ng-badge ng-tag-purple">${s.type}</span>
+                <span class="ng-badge ng-tag-cyan">${s.district}</span>
+              </div>
+              <div style="font-size:20px;font-weight:700;">${esc(s.name)}</div>
+              <div style="font-size:12px;color:#8892a8;margin-top:4px;">${esc(s.price)}</div>
+              <div style="font-size:12px;color:#8892a8;">Open ${esc(s.hours)}</div>
+            </div>
+            <div style="text-align:center;padding:10px 16px;background:#131829;border-radius:10px;border:0.5px solid rgba(0,229,255,0.15);flex-shrink:0;">
+              <div style="font-size:26px;font-weight:700;color:#00e5ff;line-height:1;">${s.rating}</div>
+              <div class="ng-stars" style="font-size:13px;margin-top:2px;">${stars(Math.round(s.rating))}</div>
+              <div style="font-size:10px;color:#8892a8;margin-top:2px;">${s.reviewCount} reviews</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:4px;flex-wrap:wrap;">
+            ${s.tags.map(t => `<span class="ng-tag ng-tag-cyan" style="cursor:default;">${esc(t)}</span>`).join('')}
+          </div>
+        </div>
+
+        <div class="ng-card">
+          <div class="ng-card-head">CATEGORY RATINGS</div>
+          <div class="ng-card-body">
+            ${Object.entries(s.cats).map(([k, v]) => {
+        const lbl = { music: 'Music', vibe: 'Vibe', value: 'Value', safety: 'Safety', english: 'English' }[k];
+        const color = v >= 4 ? '#00e5ff' : v >= 3.5 ? '#ffa500' : '#ff2d7c';
+        return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
+                <span style="font-size:12px;color:#8892a8;width:70px;">${lbl}</span>
+                <div class="ng-bar"><div class="ng-bar-fill" style="width:${(v / 5 * 100)}%;background:${color};"></div></div>
+                <span style="font-size:13px;font-weight:600;min-width:28px;text-align:right;color:${color};">${v}</span>
+              </div>`;
+      }).join('')}
+          </div>
+        </div>
+
+        <div class="ng-card">
+          <div class="ng-card-head">RATING DISTRIBUTION</div>
+          <div class="ng-card-body" style="display:flex;flex-direction:column;gap:4px;">
+            ${[5, 4, 3, 2, 1].map(star => {
+        const c = s.dist[star];
+        const pct = totalDist ? (c / totalDist * 100) : 0;
+        return `<div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:12px;width:16px;">${star}</span><span style="font-size:11px;color:#f5c518;">★</span>
+                <div class="ng-bar"><div class="ng-bar-fill" style="width:${pct}%;background:#f5c518;"></div></div>
+                <span style="font-size:11px;color:#8892a8;min-width:28px;">${c}</span>
+              </div>`;
+      }).join('')}
+          </div>
+        </div>
+
+        <div style="padding:4px 20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px;">
+            <span style="font-size:14px;font-weight:600;">Reviews (${rList.length})</span>
+            <button class="ng-btn-sm" data-action="open-review-form">+ Write review</button>
+          </div>
+          ${rList.length === 0 ? `<div style="padding:24px;text-align:center;color:#505a70;font-size:13px;">No reviews yet. Be the first!</div>` :
+          rList.map(r => {
+            const liked = userState.likedReviews[r.id];
+            return `<div class="ng-comment">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                  <div class="ng-avatar" style="color:${r.color};">${r.initials}</div>
+                  <div style="flex:1;">
+                    <div style="display:flex;align-items:center;gap:6px;">
+                      <span style="font-size:13px;font-weight:500;">${esc(r.user)}</span>
+                      <span style="background:rgba(255,45,124,0.1);color:#ff2d7c;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:600;">Lv.${r.level}</span>
+                    </div>
+                    <div style="font-size:11px;color:#505a70;">${r.time}</div>
+                  </div>
+                  <div class="ng-stars">${stars(r.rating)}</div>
+                </div>
+                <div style="font-size:13px;color:#b0b8cc;line-height:1.6;margin-bottom:8px;">${esc(r.text)}</div>
+                <div style="display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap;">
+                  ${r.tags.map(t => `<span class="ng-tag ng-tag-cyan" style="font-size:10px;cursor:default;">${esc(t)}</span>`).join('')}
+                </div>
+                <div style="display:flex;gap:16px;font-size:11px;">
+                  <span data-action="like-review" data-id="${r.id}" style="cursor:pointer;color:${liked ? '#ff2d7c' : '#8892a8'};">▲ ${r.helpful + (liked ? 1 : 0)} helpful</span>
+                  <span style="color:#505a70;">↩ ${r.replies} replies</span>
+                </div>
+              </div>`;
+          }).join('')
+        }
+        </div>
+        <div style="padding:12px 20px 20px;">
+          <button class="ng-btn" data-action="open-review-form" style="width:100%;">Write a review for this spot</button>
+        </div>
+      </div>`;
+    }
+
+    function renderReviewForm() {
+      const f = state.form;
+      const s = spots.find(x => x.id === f.spotId);
+      const tagOptions = ['Foreigner friendly', 'English menu', 'Great music', 'Good food', 'Strong drinks', 'Instagrammable', 'Cash only', 'Late night', 'Solo traveler OK', 'Reservation needed'];
+      const prices = ['~¥1,000', '¥1–3k', '¥3–5k', '¥5–10k', '¥10k+'];
+      const canSubmit = f.rating > 0 && f.body.length >= 20;
+
+      return `
+      <div class="ng-screen" style="padding:16px 20px;">
+        <div style="margin-bottom:16px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">SPOT / VENUE</div>
+          <select class="ng-select" style="width:100%;" data-action="form-spot">
+            ${spots.map(x => `<option value="${x.id}" ${x.id === f.spotId ? 'selected' : ''}>${esc(x.name)} — ${esc(x.district)}</option>`).join('')}
+          </select>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">OVERALL RATING</div>
+          <div style="display:flex;gap:4px;">
+            ${[1, 2, 3, 4, 5].map(n => `<div class="ng-star-btn ${f.rating >= n ? 'selected' : ''}" data-action="form-rating" data-val="${n}">★</div>`).join('')}
+          </div>
+          <div style="font-size:12px;color:#00e5ff;margin-top:4px;min-height:16px;">${f.rating > 0 ? f.rating + '/5 — ' + ['', 'Poor', 'Below average', 'OK', 'Great experience', 'Excellent!'][f.rating] : 'Tap to rate'}</div>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:8px;font-weight:500;letter-spacing:0.5px;">CATEGORY RATINGS</div>
+          <div style="background:#131829;border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:10px;">
+            ${[['music', 'Music'], ['vibe', 'Vibe'], ['value', 'Value'], ['safety', 'Safety'], ['english', 'English friendliness']].map(([k, lbl]) => `
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:12px;">${lbl}</span>
+                <div style="display:flex;gap:2px;">
+                  ${[1, 2, 3, 4, 5].map(n => `<span data-action="form-cat" data-cat="${k}" data-val="${n}" style="cursor:pointer;font-size:16px;color:${f.cats[k] >= n ? '#f5c518' : '#333'};">★</span>`).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">REVIEW TITLE</div>
+          <input type="text" class="ng-input" data-action="form-title" placeholder="Sum up your experience in one line..." value="${esc(f.title)}" />
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">YOUR REVIEW</div>
+          <textarea class="ng-textarea" data-action="form-body" placeholder="Share your experience — What did you love? What should others know?">${esc(f.body)}</textarea>
+          <div style="font-size:11px;margin-top:4px;text-align:right;color:${f.body.length >= 20 ? '#00c853' : '#505a70'};">${f.body.length}/20 chars min</div>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">QUICK TAGS</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            ${tagOptions.map(t => `<span class="ng-tag ${f.tags.includes(t) ? 'ng-tag-cyan' : 'ng-tag-off'}" data-action="form-tag" data-val="${esc(t)}">${esc(t)}</span>`).join('')}
+          </div>
+        </div>
+
+        <div style="margin-bottom:20px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">APPROXIMATE SPEND</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            ${prices.map(p => `<span class="ng-tag ${f.price === p ? 'ng-tag-cyan' : 'ng-tag-off'}" data-action="form-price" data-val="${esc(p)}">${esc(p)}</span>`).join('')}
+          </div>
+        </div>
+
+        <button class="ng-btn" data-action="submit-review" ${!canSubmit ? 'disabled' : ''} style="width:100%;font-size:14px;padding:12px;">Submit review</button>
+        <div style="font-size:11px;color:#505a70;text-align:center;margin-top:8px;">${canSubmit ? 'Ready to post!' : 'Rate + write at least 20 chars to submit'}</div>
+      </div>`;
+    }
+
+    function renderBoard() {
+      const filter = { all: () => true, lfg: t => t.category === 'lfg', qa: t => t.category === 'qa', tips: t => t.category === 'tips', warning: t => t.category === 'warning' };
+      const visible = threads.filter(t => t.pinned || (filter[state.boardTab] || filter.all)(t));
+      const catBadge = {
+        lfg: '<span class="ng-badge ng-tag-purple">LOOKING FOR GROUP</span>',
+        qa: '<span class="ng-badge ng-tag-cyan">Q&amp;A</span>',
+        tips: '<span class="ng-badge ng-tag-green">TIPS</span>',
+        warning: '<span class="ng-badge ng-tag-pink">WARNING</span>',
+        pinned: '<span class="ng-badge" style="background:rgba(255,45,124,0.15);color:#ff2d7c;">PINNED</span>'
+      };
+
+      return `
+      <div class="ng-screen">
+        <div class="ng-tabs">
+          ${[['all', 'All'], ['lfg', 'Looking for group'], ['qa', 'Q&A'], ['tips', 'Tips & info'], ['warning', 'Warnings']].map(([k, l]) => `
+            <div class="ng-tab ${state.boardTab === k ? 'active' : ''}" data-action="board-tab" data-val="${k}">${l}</div>
+          `).join('')}
+        </div>
+        <div style="padding:12px 20px 0;display:flex;gap:8px;align-items:center;">
+          <input type="text" class="ng-input" placeholder="Search posts..." style="flex:1;" />
+          <button class="ng-pill" data-action="open-new-thread">+ New</button>
+        </div>
+        <div style="padding:12px 0;">
+          ${visible.length === 0 ? `<div style="padding:40px 20px;text-align:center;color:#505a70;font-size:13px;">No posts in this category yet. Start one!</div>` :
+          visible.map(t => {
+            const liked = userState.likedThreads[t.id];
+            const joined = userState.joinedThreads[t.id];
+            return `<div class="ng-spot-card" data-action="open-thread" data-id="${t.id}">
+                <div style="display:flex;gap:4px;margin-bottom:6px;flex-wrap:wrap;">
+                  ${t.pinned ? catBadge.pinned : ''}
+                  ${!t.pinned && t.category ? catBadge[t.category] : ''}
+                  ${t.district ? `<span class="ng-badge ng-tag-cyan">${esc(t.district)}</span>` : ''}
+                  ${t.solved ? `<span class="ng-badge ng-tag-green">SOLVED</span>` : ''}
+                </div>
+                <div style="font-size:14px;font-weight:600;margin-bottom:4px;">${esc(t.title)}</div>
+                <div style="font-size:12px;color:#8892a8;line-height:1.4;">${esc(t.body.slice(0, 140))}${t.body.length > 140 ? '...' : ''}</div>
+                <div style="display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap;">
+                  <div class="ng-avatar-sm ng-avatar" style="color:${t.color};">${t.initials}</div>
+                  <span style="font-size:11px;">${esc(t.author)}</span>
+                  <span style="font-size:11px;color:#505a70;">· ${t.time}</span>
+                  <span style="font-size:11px;color:#8892a8;margin-left:auto;">💬 ${t.comments.length}</span>
+                  <span style="font-size:11px;color:${liked ? '#ff2d7c' : '#8892a8'};">▲ ${t.likes + (liked ? 1 : 0)}</span>
+                </div>
+                ${t.joining > 0 ? `<div style="display:flex;gap:4px;margin-top:8px;">
+                  <div style="background:rgba(0,200,83,0.1);color:#00c853;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:500;">${t.joining + (joined ? 1 : 0)} joining</div>
+                  ${joined ? `<div class="ng-joined" style="padding:4px 10px;border-radius:4px;font-size:11px;font-weight:500;">✓ You\'re in</div>` :
+                  `<div style="background:rgba(0,229,255,0.08);color:#00e5ff;padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;" data-action="join-thread" data-id="${t.id}" data-stop>+ Join</div>`}
+                </div>` : ''}
+                ${t.similarReports ? `<div style="margin-top:8px;font-size:11px;color:#ff2d7c;">⚠ ${t.similarReports} similar reports</div>` : ''}
+              </div>`;
+          }).join('')
+        }
+        </div>
+      </div>`;
+    }
+
+    function renderThreadDetail() {
+      const t = threads.find(x => x.id === state.currentThreadId);
+      if (!t) return '';
+      const liked = userState.likedThreads[t.id];
+      const joined = userState.joinedThreads[t.id];
+      const catBadge = {
+        lfg: '<span class="ng-badge ng-tag-purple">LOOKING FOR GROUP</span>',
+        qa: '<span class="ng-badge ng-tag-cyan">Q&amp;A</span>',
+        tips: '<span class="ng-badge ng-tag-green">TIPS</span>',
+        warning: '<span class="ng-badge ng-tag-pink">WARNING</span>'
+      };
+      const draft = state.commentForm[t.id] || '';
+
+      return `
+      <div class="ng-screen" style="padding:16px 20px;">
+        <div style="display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap;">
+          ${catBadge[t.category] || ''}
+          ${t.district ? `<span class="ng-badge ng-tag-cyan">${esc(t.district)}</span>` : ''}
+          ${t.solved ? `<span class="ng-badge ng-tag-green">SOLVED</span>` : ''}
+        </div>
+        <div style="font-size:18px;font-weight:700;margin-bottom:10px;">${esc(t.title)}</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <div class="ng-avatar" style="color:${t.color};">${t.initials}</div>
+          <div>
+            <span style="font-size:13px;font-weight:500;">${esc(t.author)}</span>
+            ${typeof t.level === 'number' ? `<span style="background:rgba(255,45,124,0.1);color:#ff2d7c;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:600;margin-left:4px;">Lv.${t.level}</span>` : ''}
+            <div style="font-size:11px;color:#505a70;">Posted ${t.time}</div>
+          </div>
+        </div>
+        <div style="font-size:14px;color:#b0b8cc;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">${esc(t.body)}</div>
+
+        ${t.plan ? `<div style="background:#131829;border-radius:8px;padding:12px;border:0.5px solid rgba(0,229,255,0.1);margin-bottom:14px;">
+          <div style="font-size:11px;color:#00e5ff;font-weight:600;margin-bottom:8px;letter-spacing:0.5px;">PLAN DETAILS</div>
+          ${Object.entries(t.plan).map(([k, v]) => `<div style="display:flex;gap:8px;margin-bottom:4px;"><span style="font-size:12px;color:#505a70;width:60px;text-transform:capitalize;">${k}</span><span style="font-size:12px;">${esc(v)}</span></div>`).join('')}
+        </div>` : ''}
+
+        ${t.bestAnswer ? `<div style="margin-bottom:14px;padding:10px 12px;background:rgba(0,200,83,0.05);border-left:2px solid #00c853;border-radius:0 6px 6px 0;">
+          <div style="font-size:10px;color:#00c853;font-weight:600;margin-bottom:4px;">BEST ANSWER by ${esc(t.bestAnswer.user)}</div>
+          <div style="font-size:12px;color:#b0b8cc;line-height:1.5;">${esc(t.bestAnswer.text)}</div>
+        </div>` : ''}
+
+        ${t.joining > 0 ? `<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:10px;background:#131829;border-radius:8px;">
+          <span style="font-size:13px;color:#00c853;font-weight:500;">${t.joining + (joined ? 1 : 0)} people joining</span>
+          ${joined ? `<button class="ng-joined ng-btn-ghost" disabled style="margin-left:auto;border-color:rgba(0,200,83,0.3);">✓ You're in</button>` :
+            `<button class="ng-btn-sm" data-action="join-thread" data-id="${t.id}" style="margin-left:auto;">+ Join this plan</button>`}
+        </div>` : ''}
+
+        <div style="display:flex;gap:16px;margin-bottom:16px;font-size:12px;padding-bottom:14px;border-bottom:0.5px solid rgba(0,229,255,0.08);">
+          <span data-action="like-thread" data-id="${t.id}" style="cursor:pointer;color:${liked ? '#ff2d7c' : '#8892a8'};">▲ ${t.likes + (liked ? 1 : 0)} upvotes</span>
+          <span style="color:#8892a8;">💬 ${t.comments.length} comments</span>
+          <span style="color:#8892a8;">🔖 Save</span>
+        </div>
+
+        <div style="font-size:13px;font-weight:600;margin-bottom:10px;">Comments (${t.comments.length})</div>
+        ${t.comments.length === 0 ? `<div style="padding:20px;text-align:center;color:#505a70;font-size:12px;">No comments yet. Be the first to reply!</div>` :
+          t.comments.map(c => `<div class="ng-comment" ${c.expert ? 'style="border-left:2px solid #ffa500;"' : ''}>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+              <div class="ng-avatar ng-avatar-sm" style="color:${c.color};">${c.initials}</div>
+              <span style="font-size:12px;font-weight:500;">${esc(c.user)}</span>
+              <span style="background:rgba(255,45,124,0.1);color:#ff2d7c;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:600;">Lv.${c.level}</span>
+              ${c.expert ? `<span style="font-size:10px;color:#ffa500;font-weight:600;">LOCAL EXPERT</span>` : ''}
+              <span style="font-size:10px;color:#505a70;margin-left:auto;">${c.time}</span>
+            </div>
+            <div style="font-size:13px;color:#b0b8cc;line-height:1.5;">${esc(c.text)}</div>
+            <div style="font-size:11px;color:#505a70;margin-top:6px;">▲ ${c.helpful}</div>
+          </div>`).join('')
+        }
+
+        <div style="margin-top:14px;display:flex;gap:8px;align-items:flex-start;">
+          <div class="ng-avatar ng-avatar-sm" style="color:#00e5ff;">U</div>
+          <div style="flex:1;">
+            <textarea class="ng-textarea" data-action="comment-body" data-thread="${t.id}" placeholder="Add a comment..." style="min-height:60px;">${esc(draft)}</textarea>
+            <div style="display:flex;justify-content:flex-end;margin-top:6px;">
+              <button class="ng-btn-sm" data-action="submit-comment" data-id="${t.id}" ${draft.trim().length < 3 ? 'disabled' : ''} style="opacity:${draft.trim().length < 3 ? '0.4' : '1'};">Post comment</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function renderNewThread() {
+      const f = state.threadForm;
+      const canSubmit = f.title.length >= 5 && f.body.length >= 20;
+      const cats = [['lfg', 'Looking for group'], ['qa', 'Q&A'], ['tips', 'Tips & info'], ['warning', 'Warning']];
+      return `
+      <div class="ng-screen" style="padding:16px 20px;">
+        <div style="margin-bottom:16px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">CATEGORY</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">
+            ${cats.map(([k, l]) => `<span class="ng-tag ${f.category === k ? 'ng-tag-cyan' : 'ng-tag-off'}" data-action="thread-cat" data-val="${k}">${l}</span>`).join('')}
+          </div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">TITLE</div>
+          <input type="text" class="ng-input" data-action="thread-title" placeholder="What's your post about?" value="${esc(f.title)}" />
+        </div>
+        <div style="margin-bottom:16px;">
+          <div style="font-size:11px;color:#8892a8;margin-bottom:6px;font-weight:500;letter-spacing:0.5px;">BODY</div>
+          <textarea class="ng-textarea" data-action="thread-body" placeholder="Share details, ask questions, or describe your plan..." style="min-height:140px;">${esc(f.body)}</textarea>
+          <div style="font-size:11px;margin-top:4px;text-align:right;color:${f.body.length >= 20 ? '#00c853' : '#505a70'};">${f.body.length}/20 chars min</div>
+        </div>
+        <button class="ng-btn" data-action="submit-thread" ${!canSubmit ? 'disabled' : ''} style="width:100%;">Post thread</button>
+      </div>`;
+    }
+
+    // ============ NAV / HEADER ============
+
+    // ============ PROMOTED CARD (PR) ============
+    function renderPromoCard(shop) {
+      return `
+      <div class="ng-promo-card" data-action="open-shop" data-id="${shop.id}">
+        <div class="ng-promo-banner">
+          <div class="ng-promo-banner-glow" style="background:#ff2d7c;top:-30px;left:20%;"></div>
+          <div class="ng-promo-banner-glow" style="background:#00e5ff;bottom:-30px;right:20%;"></div>
+          <div style="position:relative;z-index:1;text-align:center;">
+            <div style="font-size:18px;font-weight:700;color:#fff;letter-spacing:1px;text-shadow:0 0 20px rgba(0,229,255,0.4);">${esc(shop.name)}</div>
+            <div style="font-size:11px;color:#b0b8cc;margin-top:4px;">${esc(shop.tagline)}</div>
+          </div>
+          <div class="ng-pr-label">PR</div>
+        </div>
+        <div style="padding:12px 16px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;flex-wrap:wrap;">
+            <span class="ng-official-badge">✦ Official</span>
+            <span class="ng-badge ng-tag-purple">${esc(shop.type)}</span>
+            <span class="ng-badge ng-tag-cyan">${esc(shop.district)}</span>
+            ${shop.coupons.length > 0 ? '<span class="ng-badge ng-tag-pink">🎫 Coupon available</span>' : ''}
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-size:12px;color:#8892a8;">${esc(shop.price)} · ${esc(shop.hours)}</div>
+              <div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap;">
+                ${shop.tags.slice(0, 3).map(t => '<span class="ng-tag ng-tag-cyan" style="font-size:10px;cursor:default;">' + esc(t) + '</span>').join('')}
+              </div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:18px;font-weight:700;color:#00e5ff;">${shop.rating}</div>
+              <div class="ng-stars" style="font-size:10px;">${stars(Math.round(shop.rating))}</div>
+              <div style="font-size:10px;color:#505a70;">${shop.reviewCount} reviews</div>
+            </div>
+          </div>
+          ${shop.staff.length > 0 ? `
+          <div style="margin-top:10px;padding-top:10px;border-top:0.5px solid rgba(0,229,255,0.06);display:flex;align-items:center;gap:8px;">
+            <span style="font-size:11px;color:#8892a8;">Staff:</span>
+            <div style="display:flex;gap:4px;">
+              ${shop.staff.slice(0, 5).map(s => `<div style="width:26px;height:26px;border-radius:50%;background:#1a2038;display:flex;align-items:center;justify-content:center;font-size:13px;overflow:hidden;border:${s.isNew?'1.5px solid #ff2d7c':'0.5px solid rgba(0,229,255,0.15)'};" title="${esc(s.name)}">${s.photo ? '<img src="'+s.photo+'" style="width:100%;height:100%;object-fit:cover;" />' : s.emoji}</div>`).join('')}
+              ${shop.staff.length > 5 ? '<span style="font-size:10px;color:#505a70;margin-left:2px;">+' + (shop.staff.length - 5) + '</span>' : ''}
+            </div>
+            ${shop.staff.some(s => s.isNew) ? '<span style="font-size:10px;color:#ff2d7c;font-weight:600;">NEW member!</span>' : ''}
+          </div>` : ''}
+        </div>
+      </div>`;
+    }
+
+    // ============ SHOP DETAIL (Official Page) ============
+    function renderShopDetail() {
+      const shop = shops.find(x => x.id === state.currentShopId);
+      if (!shop) return '';
+      const tab = state.shopTab || 'about';
+      const rList = reviews.filter(r => r.spotId === shop.id);
+
+      let tabContent = '';
+
+      // ---- ABOUT TAB ----
+      if (tab === 'about') {
+        tabContent = `
+        <div style="padding:16px 20px;">
+          <div style="font-size:14px;color:#b0b8cc;line-height:1.7;margin-bottom:16px;">${esc(shop.desc)}</div>
+
+          <div class="ng-stat-row" style="margin-bottom:14px;">
+            <div class="ng-stat-box">
+              <div style="font-size:22px;font-weight:700;color:#00e5ff;">${shop.rating}</div>
+              <div class="ng-stars" style="font-size:11px;">${stars(Math.round(shop.rating))}</div>
+              <div style="font-size:10px;color:#505a70;margin-top:2px;">Rating</div>
+            </div>
+            <div class="ng-stat-box">
+              <div style="font-size:22px;font-weight:700;color:#b47aff;">${shop.reviewCount}</div>
+              <div style="font-size:10px;color:#505a70;margin-top:2px;">Reviews</div>
+            </div>
+            <div class="ng-stat-box">
+              <div style="font-size:22px;font-weight:700;color:#ff2d7c;">${shop.staff.length}</div>
+              <div style="font-size:10px;color:#505a70;margin-top:2px;">Staff</div>
+            </div>
+          </div>
+
+          <div class="ng-card" style="margin:0 0 14px;">
+            <div class="ng-card-head" style="color:#ff2d7c;">SHOP INFO</div>
+            <div class="ng-card-body" style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:10px;"><span style="font-size:12px;color:#505a70;width:70px;">Address</span><span style="font-size:12px;">${esc(shop.address)}</span></div>
+              <div style="display:flex;gap:10px;"><span style="font-size:12px;color:#505a70;width:70px;">Hours</span><span style="font-size:12px;">${esc(shop.hours)}</span></div>
+              <div style="display:flex;gap:10px;"><span style="font-size:12px;color:#505a70;width:70px;">Price</span><span style="font-size:12px;">${esc(shop.price)}</span></div>
+              <div style="display:flex;gap:10px;"><span style="font-size:12px;color:#505a70;width:70px;">Phone</span><span style="font-size:12px;color:#00e5ff;">${esc(shop.phone)}</span></div>
+              <div style="display:flex;gap:10px;"><span style="font-size:12px;color:#505a70;width:70px;">Web</span><span style="font-size:12px;color:#00e5ff;">${esc(shop.website)}</span></div>
+            </div>
+          </div>
+
+          <div class="ng-card" style="margin:0 0 14px;">
+            <div class="ng-card-head">CATEGORY RATINGS</div>
+            <div class="ng-card-body">
+              ${Object.entries(shop.cats).map(([k,v]) => {
+                const lbl = {music:'Music',vibe:'Vibe',value:'Value',safety:'Safety',english:'English'}[k];
+                const color = v>=4 ? '#00e5ff' : v>=3.5 ? '#ffa500' : '#ff2d7c';
+                return '<div style="display:flex;align-items:center;gap:8px;padding:4px 0;"><span style="font-size:12px;color:#8892a8;width:70px;">'+lbl+'</span><div class="ng-bar"><div class="ng-bar-fill" style="width:'+(v/5*100)+'%;background:'+color+';"></div></div><span style="font-size:13px;font-weight:600;min-width:28px;text-align:right;color:'+color+';">'+v+'</span></div>';
+              }).join('')}
+            </div>
+          </div>
+
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+            ${shop.amenities.map(a => '<span class="ng-tag ng-tag-cyan" style="cursor:default;">'+esc(a)+'</span>').join('')}
+          </div>
+
+          ${shop.news.length > 0 ? `
+          <div class="ng-card" style="margin:0 0 14px;">
+            <div class="ng-card-head" style="color:#f5c518;">📰 LATEST NEWS</div>
+            <div class="ng-card-body">
+              ${shop.news.map(n => '<div style="margin-bottom:10px;padding-bottom:10px;border-bottom:0.5px solid rgba(0,229,255,0.06);"><div style="font-size:13px;font-weight:600;margin-bottom:3px;">'+esc(n.title)+'</div><div style="font-size:12px;color:#8892a8;line-height:1.5;">'+esc(n.body)+'</div><div style="font-size:10px;color:#505a70;margin-top:4px;">'+esc(n.time)+'</div></div>').join('')}
+            </div>
+          </div>` : ''}
+        </div>`;
+      }
+
+      // ---- STAFF TAB ----
+      if (tab === 'staff') {
+        tabContent = `
+        <div style="padding:16px 20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div style="font-size:14px;font-weight:600;">Staff (${shop.staff.length})</div>
+            <span style="font-size:11px;color:#8892a8;">Updated by shop</span>
+          </div>
+          <div class="ng-staff-grid">
+            ${shop.staff.map(s => `
+              <div class="ng-staff-card">
+                <div class="ng-staff-photo">
+                  ${s.photo ? '<img src="'+s.photo+'" alt="'+esc(s.name)+'" />' : '<span>'+s.emoji+'</span>'}
+                  ${s.isNew ? '<div class="ng-staff-new">NEW</div>' : ''}
+                </div>
+                <div class="ng-staff-info">
+                  <div style="font-size:13px;font-weight:600;">${esc(s.name)}</div>
+                  <div style="font-size:10px;color:#ff2d7c;font-weight:500;margin-top:2px;">${esc(s.role)}</div>
+                  <div style="font-size:11px;color:#8892a8;margin-top:4px;line-height:1.4;">${esc(s.desc)}</div>
+                  <div style="font-size:10px;color:#505a70;margin-top:4px;">📅 ${esc(s.schedule)}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <div style="margin-top:16px;padding:12px;background:#131829;border-radius:8px;border:0.5px solid rgba(0,229,255,0.1);text-align:center;">
+            <div style="font-size:12px;color:#8892a8;">Staff information is managed by the venue</div>
+            <div style="font-size:11px;color:#505a70;margin-top:4px;">Last updated: 2 days ago</div>
+          </div>
+        </div>`;
+      }
+
+      // ---- EVENTS / COUPONS TAB ----
+      if (tab === 'events') {
+        tabContent = `
+        <div style="padding:16px 20px;">
+          ${shop.coupons.length > 0 ? `
+          <div style="font-size:12px;font-weight:600;color:#ff2d7c;letter-spacing:0.5px;margin-bottom:10px;">🎫 COUPONS</div>
+          ${shop.coupons.map(c => `
+            <div class="ng-coupon">
+              <div class="ng-coupon-cut"></div>
+              <div class="ng-coupon-cut ng-coupon-cut-r"></div>
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                <div>
+                  <div style="font-size:14px;font-weight:700;color:#ff2d7c;">${esc(c.title)}</div>
+                  <div style="font-size:13px;color:#b0b8cc;margin-top:4px;">${esc(c.desc)}</div>
+                </div>
+                <div style="text-align:center;flex-shrink:0;margin-left:10px;">
+                  <div style="background:rgba(255,45,124,0.15);color:#ff2d7c;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:700;font-family:monospace;letter-spacing:1px;">${esc(c.code)}</div>
+                </div>
+              </div>
+              <div style="font-size:10px;color:#505a70;margin-top:8px;">Valid until ${esc(c.expires)}</div>
+            </div>
+          `).join('')}
+          ` : ''}
+
+          <div style="font-size:12px;font-weight:600;color:#00e5ff;letter-spacing:0.5px;margin:16px 0 10px;">🎉 EVENTS</div>
+          ${shop.events.map(e => `
+            <div class="ng-event-card" ${e.highlight ? 'style="border-color:rgba(255,45,124,0.25);"' : ''}>
+              ${e.highlight ? '<div style="font-size:9px;color:#ff2d7c;font-weight:600;letter-spacing:0.5px;margin-bottom:4px;">🔥 FEATURED</div>' : ''}
+              <div style="font-size:14px;font-weight:600;margin-bottom:4px;">${esc(e.title)}</div>
+              <div style="display:flex;gap:12px;margin-bottom:4px;">
+                <span style="font-size:12px;color:#00e5ff;">${esc(e.date)}</span>
+                <span style="font-size:12px;color:#8892a8;">${esc(e.time)}</span>
+              </div>
+              <div style="font-size:12px;color:#8892a8;line-height:1.4;">${esc(e.desc)}</div>
+            </div>
+          `).join('')}
+        </div>`;
+      }
+
+      // ---- REVIEWS TAB ----
+      if (tab === 'reviews') {
+        tabContent = `
+        <div style="padding:16px 20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <span style="font-size:14px;font-weight:600;">Reviews (${rList.length})</span>
+            <button class="ng-btn-sm" data-action="open-review-form-shop" data-id="${shop.id}">+ Write review</button>
+          </div>
+          ${rList.length === 0 ? '<div style="padding:24px;text-align:center;color:#505a70;font-size:13px;">No reviews yet for this venue. Be the first!</div>' :
+            rList.map(r => {
+              const liked = userState.likedReviews[r.id];
+              return '<div class="ng-comment"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><div class="ng-avatar" style="color:'+r.color+';">'+r.initials+'</div><div style="flex:1;"><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:13px;font-weight:500;">'+esc(r.user)+'</span><span style="background:rgba(255,45,124,0.1);color:#ff2d7c;padding:1px 6px;border-radius:10px;font-size:9px;font-weight:600;">Lv.'+r.level+'</span></div><div style="font-size:11px;color:#505a70;">'+r.time+'</div></div><div class="ng-stars">'+stars(r.rating)+'</div></div><div style="font-size:13px;color:#b0b8cc;line-height:1.6;margin-bottom:8px;">'+esc(r.text)+'</div><div style="display:flex;gap:16px;font-size:11px;"><span data-action="like-review" data-id="'+r.id+'" style="cursor:pointer;color:'+(liked?'#ff2d7c':'#8892a8')+';">▲ '+(r.helpful+(liked?1:0))+' helpful</span><span style="color:#505a70;">↩ '+r.replies+' replies</span></div></div>';
+            }).join('')
+          }
+        </div>`;
+      }
+
+      return `
+      <div class="ng-screen">
+        <!-- Shop Header -->
+        <div style="position:relative;">
+          <div class="ng-promo-banner" style="height:120px;">
+            <div class="ng-promo-banner-glow" style="background:#ff2d7c;top:-30px;left:15%;"></div>
+            <div class="ng-promo-banner-glow" style="background:#b47aff;top:-30px;right:25%;"></div>
+            <div class="ng-promo-banner-glow" style="background:#00e5ff;bottom:-30px;right:15%;"></div>
+            <div style="position:relative;z-index:1;text-align:center;">
+              <div style="font-size:22px;font-weight:700;color:#fff;letter-spacing:2px;text-shadow:0 0 24px rgba(0,229,255,0.5);">${esc(shop.name)}</div>
+              <div style="font-size:12px;color:#b0b8cc;margin-top:6px;">${esc(shop.tagline)}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Official info bar -->
+        <div style="padding:12px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-bottom:0.5px solid rgba(0,229,255,0.08);">
+          <span class="ng-official-badge">✦ Official Page</span>
+          <span class="ng-badge ng-tag-purple">${esc(shop.type)}</span>
+          <span class="ng-badge ng-tag-cyan">${esc(shop.district)}</span>
+          ${shop.coupons.length > 0 ? '<span class="ng-badge ng-tag-pink">🎫 '+shop.coupons.length+' coupon'+(shop.coupons.length>1?'s':'')+'</span>' : ''}
+          <span style="font-size:11px;color:#8892a8;margin-left:auto;">${esc(shop.price)}</span>
+        </div>
+
+        <!-- Shop Tabs -->
+        <div class="ng-shop-tab">
+          <div class="ng-tab ${tab==='about'?'active':''}" data-action="shop-tab" data-val="about">About</div>
+          <div class="ng-tab ${tab==='staff'?'active':''}" data-action="shop-tab" data-val="staff">Staff (${shop.staff.length})</div>
+          <div class="ng-tab ${tab==='events'?'active':''}" data-action="shop-tab" data-val="events">Events${shop.coupons.length>0?' 🎫':''}</div>
+          <div class="ng-tab ${tab==='reviews'?'active':''}" data-action="shop-tab" data-val="reviews">Reviews</div>
+        </div>
+
+        ${tabContent}
+      </div>`;
+    }
+
+
+    // ============ STAFF HORIZONTAL SCROLL ============
+    function renderStaffScroll() {
+      const allStaff = [];
+      shops.forEach(shop => {
+        shop.staff.forEach(s => {
+          allStaff.push({ ...s, shopName: shop.name, shopId: shop.id });
+        });
+      });
+      if (allStaff.length === 0) return '';
+      return `
+      <div style="padding:12px 20px 4px;">
+        <div style="font-size:11px;color:#b47aff;letter-spacing:1px;font-weight:600;margin-bottom:8px;">🌟 STAFF PICKS — Meet the crew</div>
+      </div>
+      <div class="ng-staff-scroll">
+        ${allStaff.map(s => `
+          <div class="ng-staff-scroll-item" data-action="open-shop" data-id="${s.shopId}">
+            <div class="ng-staff-scroll-avatar ${s.isNew ? 'has-new' : ''}">
+              ${s.photo ? '<img src="'+s.photo+'" alt="'+esc(s.name)+'" />' : s.emoji}
+              ${s.isNew ? '<div class="ng-staff-scroll-new">NEW</div>' : ''}
+            </div>
+            <div class="ng-staff-scroll-name">${esc(s.name)}</div>
+            <div class="ng-staff-scroll-role">${esc(s.role)}</div>
+            <div class="ng-staff-scroll-shop">${esc(s.shopName)}</div>
+          </div>
+        `).join('')}
+      </div>`;
+    }
+
+    // ============ ADMIN / TEST DATA PANEL ============
+    function renderAdmin() {
+      return `
+      <div class="ng-screen" style="padding:16px 20px;">
+        <div style="font-size:16px;font-weight:700;margin-bottom:16px;">Test Data Manager</div>
+
+        <!-- ADD SPOT -->
+        <div class="ng-admin-section">
+          <div class="ng-admin-section-title">+ Add Spot</div>
+          <div class="ng-admin-row">
+            <div><label>Name</label><input class="ng-input" id="adm-spot-name" placeholder="Bar XYZ" /></div>
+            <div><label>Type</label>
+              <select class="ng-select" id="adm-spot-type" style="width:100%;">
+                <option>Bar</option><option>Nightclub</option><option>Karaoke</option>
+                <option>Restaurant</option><option>Late-night eats</option><option>Night tour</option>
+              </select>
+            </div>
+          </div>
+          <div class="ng-admin-row">
+            <div><label>District</label>
+              <select class="ng-select" id="adm-spot-district" style="width:100%;">
+                <option>Shinjuku</option><option>Shibuya</option><option>Roppongi</option>
+                <option>Ikebukuro</option><option>Akihabara</option><option>Ginza</option><option>Ueno</option>
+              </select>
+            </div>
+            <div><label>Price</label><input class="ng-input" id="adm-spot-price" placeholder="¥2,000–5,000" /></div>
+          </div>
+          <div class="ng-admin-row">
+            <div><label>Hours</label><input class="ng-input" id="adm-spot-hours" placeholder="20:00–05:00" /></div>
+            <div><label>Icon emoji</label><input class="ng-input" id="adm-spot-icon" placeholder="🍸" value="🍸" /></div>
+          </div>
+          <div style="margin-bottom:8px;">
+            <label style="display:block;font-size:10px;color:#505a70;margin-bottom:3px;">Account Image URL (optional)</label>
+            <input class="ng-input" id="adm-spot-img" placeholder="https://example.com/photo.jpg" />
+          </div>
+          <div style="margin-bottom:8px;">
+            <label style="display:block;font-size:10px;color:#505a70;margin-bottom:3px;">Tags (comma-separated)</label>
+            <input class="ng-input" id="adm-spot-tags" placeholder="English menu, Late night, Credit cards OK" />
+          </div>
+          <button class="ng-btn" data-action="adm-add-spot" style="width:100%;">Add Spot</button>
+        </div>
+
+        <!-- ADD STAFF to shop -->
+        <div class="ng-admin-section">
+          <div class="ng-admin-section-title">+ Add Staff to Shop</div>
+          <div class="ng-admin-row">
+            <div><label>Shop</label>
+              <select class="ng-select" id="adm-staff-shop" style="width:100%;">
+                ${shops.map(s => '<option value="'+s.id+'">'+esc(s.name)+'</option>').join('')}
+              </select>
+            </div>
+          </div>
+          <div class="ng-admin-row">
+            <div><label>Name</label><input class="ng-input" id="adm-staff-name" placeholder="Yuki" /></div>
+            <div><label>Role</label><input class="ng-input" id="adm-staff-role" placeholder="Bartender" /></div>
+          </div>
+          <div class="ng-admin-row">
+            <div><label>Emoji</label><input class="ng-input" id="adm-staff-emoji" placeholder="🍸" value="🍸" /></div>
+            <div><label>Schedule</label><input class="ng-input" id="adm-staff-sched" placeholder="Fri–Sun" /></div>
+          </div>
+          <div style="margin-bottom:8px;">
+            <label style="display:block;font-size:10px;color:#505a70;margin-bottom:3px;">Description</label>
+            <input class="ng-input" id="adm-staff-desc" placeholder="Specialty: Japanese whisky cocktails" />
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+            <label style="font-size:11px;color:#8892a8;"><input type="checkbox" id="adm-staff-new" /> Mark as NEW</label>
+          </div>
+          <button class="ng-btn" data-action="adm-add-staff" style="width:100%;">Add Staff</button>
+        </div>
+
+        <!-- CURRENT DATA OVERVIEW -->
+        <div class="ng-admin-section">
+          <div class="ng-admin-section-title">Current Spots (${spots.length})</div>
+          ${spots.map(s => `
+            <div class="ng-admin-mini-card">
+              <div style="width:32px;height:32px;border-radius:6px;flex-shrink:0;overflow:hidden;background:#1a2038;display:flex;align-items:center;justify-content:center;font-size:16px;">
+                ${s.img ? '<img src="'+esc(s.img)+'" style="width:100%;height:100%;object-fit:cover;" />' : s.icon}
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-weight:500;">${esc(s.name)}</div>
+                <div style="font-size:10px;color:#505a70;">${esc(s.district)} · ${esc(s.type)} · ★${s.rating}</div>
+              </div>
+              <span class="ng-admin-del" data-action="adm-del-spot" data-id="${s.id}" data-stop>✕</span>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="ng-admin-section">
+          <div class="ng-admin-section-title">Shop Staff</div>
+          ${shops.map(shop => `
+            <div style="font-size:11px;color:#b47aff;margin:8px 0 4px;font-weight:600;">${esc(shop.name)}</div>
+            ${shop.staff.map((s, i) => `
+              <div class="ng-admin-mini-card">
+                <span style="font-size:16px;">${s.emoji}</span>
+                <div style="flex:1;">
+                  <span style="font-weight:500;">${esc(s.name)}</span>
+                  <span style="color:#505a70;font-size:10px;"> — ${esc(s.role)}</span>
+                  ${s.isNew ? '<span style="color:#ff2d7c;font-size:9px;font-weight:600;"> NEW</span>' : ''}
+                </div>
+                <span class="ng-admin-del" data-action="adm-del-staff" data-id="${shop.id}" data-idx="${i}" data-stop>✕</span>
+              </div>
+            `).join('')}
+          `).join('')}
+        </div>
+      </div>`;
+    }
+
+    function renderNav() {
+      const items = [
+        ['feed', '🏠', 'Feed'], ['reviews', '⭐', 'Reviews'], ['board', '💬', 'Board'], ['map', '🗺', 'Map'], ['admin', '⚙', 'Admin']
+      ];
+      const activeScreen = ['feed', 'spot', 'reviewForm', 'shopDetail'].includes(state.screen) ? 'feed'
+        : state.screen === 'admin' ? 'admin'
+        : ['board', 'thread', 'newThread'].includes(state.screen) ? 'board'
+          : state.screen;
+      return items.map(([k, i, l]) => `<div class="ng-nav-item ${k === activeScreen ? 'active' : ''}" data-action="nav" data-val="${k}"><span class="ng-nav-icon">${i}</span>${l}</div>`).join('');
+    }
+
+    function renderHeader() {
+      const titles = {
+        feed: 'TOKYO <span class="ng-cyan">//</span> LIVE INTEL',
+        spot: 'SPOT <span class="ng-cyan">//</span> DETAIL',
+        reviewForm: 'WRITE <span class="ng-cyan">//</span> REVIEW',
+        board: 'TOKYO <span class="ng-cyan">//</span> BOARD',
+        thread: 'BOARD <span class="ng-cyan">//</span> THREAD',
+        newThread: 'NEW <span class="ng-cyan">//</span> POST',
+        map: 'TOKYO <span class="ng-cyan">//</span> MAP',
+        profile: 'YOU <span class="ng-cyan">//</span> PROFILE',
+        reviews: 'ALL <span class="ng-cyan">//</span> REVIEWS',
+        shopDetail: 'SHOP <span class="ng-cyan">//</span> OFFICIAL',
+        admin: 'TEST <span class="ng-cyan">//</span> ADMIN'
+      };
+      $('ng-screen-title').innerHTML = titles[state.screen] || titles.feed;
+
+      let action = '';
+      if (['spot', 'reviewForm', 'thread', 'newThread', 'shopDetail', 'admin'].includes(state.screen)) {
+        action = `<button class="ng-back" data-action="back">← Back</button>`;
+      } else if (state.screen === 'feed') {
+        action = `<input type="text" class="ng-input" placeholder="Search..." style="width:140px;padding:6px 10px;font-size:12px;" />`;
+      } else if (state.screen === 'board') {
+        action = `<button class="ng-pill" data-action="open-new-thread">+ New post</button>`;
+      }
+      $('ng-head-action').innerHTML = action;
+    }
+
+    function renderPlaceholder(msg) {
+      return `<div class="ng-screen" style="padding:60px 20px;text-align:center;">
+      <div style="font-size:48px;margin-bottom:12px;opacity:0.5;">${msg.icon}</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:6px;">${msg.title}</div>
+      <div style="font-size:12px;color:#505a70;">${msg.sub}</div>
+    </div>`;
+    }
+
+    function render() {
+      renderHeader();
+      // Show hero only on feed screen
+      const hero = $('ng-hero');
+      if (hero) {
+        if (state.screen === 'feed') hero.classList.remove('hidden');
+        else hero.classList.add('hidden');
+      }
+      let html = '';
+      switch (state.screen) {
+        case 'feed': html = renderFeed(); break;
+        case 'spot': html = renderSpotDetail(); break;
+        case 'reviewForm': html = renderReviewForm(); break;
+        case 'board': html = renderBoard(); break;
+        case 'thread': html = renderThreadDetail(); break;
+        case 'newThread': html = renderNewThread(); break;
+        case 'shopDetail': html = renderShopDetail(); break;
+        case 'reviews': html = renderPlaceholder({ icon: '⭐', title: 'All Reviews', sub: 'Coming soon — browse reviews across all spots' }); break;
+        case 'map': html = renderPlaceholder({ icon: '🗺', title: 'Map View', sub: 'Coming soon — see all spots plotted on Tokyo map' }); break;
+        case 'admin': html = renderAdmin(); break;
+      }
+      $('ng-body').innerHTML = html;
+      $('ng-nav').innerHTML = renderNav();
+    }
+
+    // ============ EVENT HANDLING ============
+    document.addEventListener('click', e => {
+      const el = e.target.closest('[data-action]');
+      if (!el || !document.getElementById('ng-root').contains(el)) return;
+      const a = el.dataset.action;
+      const val = el.dataset.val;
+      const id = el.dataset.id ? parseInt(el.dataset.id) : null;
+
+      if (el.dataset.stop) e.stopPropagation();
+
+      switch (a) {
+        case 'nav':
+          if (val === 'feed') navigate('feed');
+          else if (val === 'board') navigate('board');
+          else navigate(val);
+          break;
+        case 'back':
+          if (state.screen === 'spot' || state.screen === 'reviewForm' || state.screen === 'shopDetail' || state.screen === 'admin') navigate('feed');
+          else if (state.screen === 'thread' || state.screen === 'newThread') navigate('board');
+          break;
+        case 'feed-tab': state.feedTab = val; render(); break;
+        case 'board-tab': state.boardTab = val; render(); break;
+        case 'open-spot': navigate('spot', { currentSpotId: id }); break;
+        case 'open-thread': navigate('thread', { currentThreadId: id }); break;
+        case 'open-shop': navigate('shopDetail', { currentShopId: id, shopTab: 'about' }); break;
+        case 'shop-tab': state.shopTab = val; render(); break;
+        case 'open-review-form-shop':
+          state.form = { rating: 0, spotId: id, tags: [], price: '', body: '', title: '', cats: { music: 0, vibe: 0, value: 0, safety: 0, english: 0 } };
+          navigate('reviewForm');
+          break;
+        case 'open-review-form':
+          state.form = { rating: 0, spotId: state.currentSpotId || 1, tags: [], price: '', body: '', title: '', cats: { music: 0, vibe: 0, value: 0, safety: 0, english: 0 } };
+          navigate('reviewForm');
+          break;
+        case 'open-new-thread':
+          state.threadForm = { title: '', body: '', category: 'lfg' };
+          navigate('newThread');
+          break;
+        case 'form-rating': state.form.rating = parseInt(val); render(); break;
+        case 'form-cat': state.form.cats[el.dataset.cat] = parseInt(val); render(); break;
+        case 'form-tag':
+          const tg = val; const i = state.form.tags.indexOf(tg);
+          if (i >= 0) state.form.tags.splice(i, 1); else state.form.tags.push(tg);
+          render(); break;
+        case 'form-price': state.form.price = val; render(); break;
+        case 'thread-cat': state.threadForm.category = val; render(); break;
+        case 'like-review':
+          userState.likedReviews[id] = !userState.likedReviews[id];
+          toast(userState.likedReviews[id] ? 'Marked as helpful' : 'Removed');
+          render(); break;
+        case 'like-thread':
+          userState.likedThreads[id] = !userState.likedThreads[id];
+          toast(userState.likedThreads[id] ? 'Upvoted' : 'Removed');
+          render(); break;
+        case 'join-thread':
+          if (userState.joinedThreads[id]) {
+            userState.joinedThreads[id] = false; toast('Left the group');
+          } else {
+            userState.joinedThreads[id] = true; toast('You joined the plan!');
+          }
+          render(); break;
+        case 'submit-review':
+          const sp = spots.find(x => x.id === state.form.spotId);
+          reviews.unshift({ id: Date.now(), spotId: state.form.spotId, user: 'You', initials: 'U', color: '#00e5ff', level: 1, rating: state.form.rating, text: state.form.body, tags: state.form.tags.slice(0, 3), helpful: 0, replies: 0, time: 'just now' });
+          sp.reviewCount++;
+          toast('Review posted! 🎉');
+          navigate('spot', { currentSpotId: state.form.spotId });
+          break;
+        case 'submit-thread':
+          const newId = Date.now();
+          threads.splice(1, 0, { id: newId, category: state.threadForm.category, title: state.threadForm.title, author: 'You', initials: 'U', color: '#00e5ff', level: 1, district: 'General', time: 'just now', body: state.threadForm.body, comments: [], likes: 0, joining: state.threadForm.category === 'lfg' ? 1 : 0 });
+          if (state.threadForm.category === 'lfg') userState.joinedThreads[newId] = true;
+          toast('Thread posted! 🎉');
+          navigate('thread', { currentThreadId: newId });
+          break;
+        case 'adm-add-spot': {
+          const n = document.getElementById('adm-spot-name');
+          if (!n || !n.value.trim()) { toast('Enter a spot name'); break; }
+          const newSpot = {
+            id: Date.now(),
+            name: n.value.trim(),
+            type: document.getElementById('adm-spot-type').value,
+            district: document.getElementById('adm-spot-district').value,
+            price: document.getElementById('adm-spot-price').value || '¥???',
+            hours: document.getElementById('adm-spot-hours').value || 'TBD',
+            rating: 0, reviewCount: 0,
+            icon: document.getElementById('adm-spot-icon').value || '🏠',
+            img: document.getElementById('adm-spot-img').value || '',
+            tags: (document.getElementById('adm-spot-tags').value || '').split(',').map(t => t.trim()).filter(Boolean),
+            cats: { music: 0, vibe: 0, value: 0, safety: 0, english: 0 },
+            dist: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 }
+          };
+          spots.push(newSpot);
+          toast('Spot added: ' + newSpot.name);
+          render();
+          break;
+        }
+        case 'adm-del-spot': {
+          const idx = spots.findIndex(s => s.id === id);
+          if (idx >= 0) { spots.splice(idx, 1); toast('Spot removed'); render(); }
+          break;
+        }
+        case 'adm-add-staff': {
+          const shopId = parseInt(document.getElementById('adm-staff-shop').value);
+          const shop = shops.find(s => s.id === shopId);
+          const sn = document.getElementById('adm-staff-name');
+          if (!shop || !sn || !sn.value.trim()) { toast('Select shop and enter name'); break; }
+          shop.staff.push({
+            name: sn.value.trim(),
+            role: document.getElementById('adm-staff-role').value || 'Staff',
+            emoji: document.getElementById('adm-staff-emoji').value || '🙂',
+            desc: document.getElementById('adm-staff-desc').value || '',
+            isNew: document.getElementById('adm-staff-new').checked,
+            schedule: document.getElementById('adm-staff-sched').value || 'TBD'
+          });
+          toast('Staff added to ' + shop.name);
+          render();
+          break;
+        }
+        case 'adm-del-staff': {
+          const shopId2 = parseInt(el.dataset.id);
+          const sIdx = parseInt(el.dataset.idx);
+          const shop2 = shops.find(s => s.id === shopId2);
+          if (shop2 && sIdx >= 0) { shop2.staff.splice(sIdx, 1); toast('Staff removed'); render(); }
+          break;
+        }
+        case 'submit-comment':
+          const th = threads.find(x => x.id === id);
+          const draft = state.commentForm[id];
+          if (th && draft && draft.trim().length >= 3) {
+            th.comments.push({ user: 'You', initials: 'U', color: '#00e5ff', level: 1, text: draft.trim(), helpful: 0, time: 'just now' });
+            state.commentForm[id] = '';
+            toast('Comment posted!');
+            render();
+          }
+          break;
+      }
+    });
+
+    document.addEventListener('input', e => {
+      const el = e.target.closest('[data-action]');
+      if (!el || !document.getElementById('ng-root').contains(el)) return;
+      const a = el.dataset.action;
+      if (a === 'form-title') { state.form.title = el.value; const hint = document.querySelector('[data-action="submit-review"]'); /* no rerender needed */ }
+      else if (a === 'form-body') {
+        state.form.body = el.value;
+        // Update counter + submit button live
+        const counter = el.parentElement.querySelector('div');
+        if (counter) { counter.textContent = el.value.length + '/20 chars min'; counter.style.color = el.value.length >= 20 ? '#00c853' : '#505a70'; }
+        const btn = document.querySelector('[data-action="submit-review"]');
+        if (btn) { btn.disabled = !(state.form.rating > 0 && el.value.length >= 20); }
+      }
+      else if (a === 'thread-title') {
+        state.threadForm.title = el.value;
+        const btn = document.querySelector('[data-action="submit-thread"]');
+        if (btn) btn.disabled = !(el.value.length >= 5 && state.threadForm.body.length >= 20);
+      }
+      else if (a === 'thread-body') {
+        state.threadForm.body = el.value;
+        const counter = el.parentElement.querySelector('div:last-child');
+        if (counter) { counter.textContent = el.value.length + '/20 chars min'; counter.style.color = el.value.length >= 20 ? '#00c853' : '#505a70'; }
+        const btn = document.querySelector('[data-action="submit-thread"]');
+        if (btn) btn.disabled = !(state.threadForm.title.length >= 5 && el.value.length >= 20);
+      }
+      else if (a === 'comment-body') {
+        const tid = parseInt(el.dataset.thread);
+        state.commentForm[tid] = el.value;
+        const btn = document.querySelector(`[data-action="submit-comment"][data-id="${tid}"]`);
+        if (btn) {
+          const ok = el.value.trim().length >= 3;
+          btn.disabled = !ok;
+          btn.style.opacity = ok ? '1' : '0.4';
+        }
+      }
+    });
+
+    document.addEventListener('change', e => {
+      const el = e.target.closest('[data-action]');
+      if (!el || !document.getElementById('ng-root').contains(el)) return;
+      if (el.dataset.action === 'form-spot') { state.form.spotId = parseInt(el.value); render(); }
+    });
+
+    render();
+  })();
+</script>
+</body>
+</html>
